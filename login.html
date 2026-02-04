@@ -130,8 +130,8 @@
       const correctPw = "1234";
 
       if(id === correctId && pw === correctPw){
-        // ✅ 로그인 성공 → 포트폴리오로 이동
-        window.location.href = "./portfolio.html";
+        // ✅ 로그인 성공 → index.html로 이동 (같은 폴더)
+        window.location.href = "index.html";
       }else{
         document.getElementById("error-msg").style.display = "block";
       }
