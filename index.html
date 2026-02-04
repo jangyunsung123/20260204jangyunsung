@@ -2,129 +2,236 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Login | 장윤성</title>
+  <title>PORTFOLIO | 장윤성</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- 공통 CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+
   <style>
-    html, body{
-      margin:0;
-      padding:0;
-      height:100%;
-      overflow:hidden; /* ✅ 스크롤 완전 차단 */
-      background:#0f0f0f;
-      font-family: Arial, sans-serif;
-      color:#fff;
-    }
+    /* 지도 */
+    .map-embed{margin-top:12px;border-radius:12px;overflow:hidden;}
+    .map-embed iframe{width:100%;height:250px;border:0;}
 
-    body{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
+    /* 인스타 */
+    .insta-content{display:flex;align-items:center;justify-content:center;gap:10px;}
+    .insta-icon{width:28px;}
 
-    .login-box{
-      width:340px;
-      background:#2f2f2f;
-      padding:40px 35px;
-      border-radius:16px;
-      border:1px solid #4fd1c5;
-      text-align:center;
-      box-shadow:0 0 15px rgba(79,209,197,0.25);
-    }
-
-    .login-box h2{
-      margin:0 0 24px;
-      color:#4fd1c5;
-      letter-spacing:2px;
-    }
-
-    .login-box input{
-      width:100%;
-      padding:12px;
-      margin-bottom:14px;
-      border:none;
-      border-radius:8px;
-      font-size:15px;
-      outline:none;
-      box-sizing:border-box;
-    }
-
-    .login-box input:focus{
-      box-shadow:0 0 5px #4fd1c5;
-    }
-
-    .login-box button{
-      width:100%;
-      padding:12px;
-      background:#4fd1c5;
-      color:#000;
-      border:none;
-      border-radius:8px;
-      font-size:16px;
-      font-weight:bold;
-      cursor:pointer;
-      transition:0.2s;
-    }
-
-    .login-box button:hover{
-      background:#3bb5aa;
-      transform:translateY(-1px);
-    }
-
-    .error{
-      display:none;
-      margin-top:12px;
-      color:#ff6b6b;
-      font-size:14px;
-    }
-
-    .hint{
-      margin-top:18px;
-      font-size:12px;
-      color:#bbb;
-      line-height:1.5;
-    }
+    /* GitHub */
+    .github-box{cursor:pointer;}
   </style>
 </head>
 
 <body>
 
-  <div class="login-box">
+<!-- ================= HEADER ================= -->
+<header class="top-nav">
+  <h1 class="logo">YS</h1>
 
-    <h2>LOGIN</h2>
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">HOME</a></li>
+      <li><a href="#my">MY</a></li>
+      <li><a href="#skill">SKILL</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <input type="text" id="userid" placeholder="아이디">
-    <input type="password" id="password" placeholder="비밀번호">
+<!-- ================= HOME ================= -->
+<section id="home" class="home">
 
-    <button type="button" onclick="login()">로그인</button>
+  <div class="home-content">
 
-    <p class="error" id="error-msg">아이디 또는 비밀번호가 틀렸습니다.</p>
+    <img src="images/profile.jpg" class="home-img">
 
-    <div class="hint">
-      ※ 포트폴리오 발표용 로그인 페이지입니다.
+    <div class="home-text">
+      <h2>
+        안녕하세요,<br>
+        <span class="home-name">장윤성</span> 입니다
+      </h2>
+
+      <p class="home-sub">
+        나를 기록하는 개발자 포트폴리오
+      </p>
     </div>
 
   </div>
 
-  <script>
-    function login(){
-      const id = document.getElementById("userid").value.trim();
-      const pw = document.getElementById("password").value.trim();
+</section>
 
-      const correctId = "admin";
-      const correctPw = "1234";
+<!-- ================= MY ================= -->
+<section id="my" class="page">
 
-      if(id === correctId && pw === correctPw){
-        window.location.href = "./index.html";
-      }else{
-        document.getElementById("error-msg").style.display = "block";
-      }
-    }
+  <h2 class="page-title">MY</h2>
 
-    document.addEventListener("keydown", function(e){
-      if(e.key === "Enter") login();
-    });
-  </script>
+  <div class="my-container">
+
+    <div class="profile-area">
+      <img src="images/profile.jpg" class="profile-img">
+    </div>
+
+    <div class="info-grid">
+
+      <article class="info-box"><h3>이름</h3><p>장윤성</p></article>
+      <article class="info-box"><h3>나이</h3><p>25세</p></article>
+
+      <article class="info-box">
+        <h3>목표</h3>
+        <p>끊임없는 노력으로 백엔드 개발자로 성장</p>
+      </article>
+
+      <article class="info-box"><h3>Phone</h3><p>010-5750-6186</p></article>
+
+      <article class="info-box">
+        <h3>거주지</h3>
+        <p>인천 부평구</p>
+
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps?q=부평캐슬앤더샵퍼스트&output=embed"
+            loading="lazy"></iframe>
+        </div>
+      </article>
+
+      <article class="info-box">
+
+        <h3>Email</h3>
+        <p>chho4202@naver.com</p>
+
+        <a href="https://mail.naver.com/v2/new"
+           target="_blank"
+           class="mail-btn">
+
+          ✉️ 메일쓰기
+
+        </a>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= SKILL ================= -->
+<section id="skill" class="page">
+
+  <h2 class="page-title">SKILL</h2>
+
+  <section class="skill-layout">
+
+    <!-- PM 프로젝트 -->
+    <article class="info-box wide-box">
+
+      <h3>PM 불법주차 프로젝트</h3>
+
+      <img src="images/pm_map.png" class="project-img">
+
+      <p>YOLO 기반 자동 단속 시스템</p>
+
+      <!-- MYBOX 연결 -->
+      <a href="https://mybox.naver.com/main/web/shared/viewer/3472595074507481184:34407643?resourceKey=aGVsbG9mZmljaWFsMjU5OHwzNDcyNTk1MDc0NDcwMTMxODA4fER8MTY3OTc5MTI&fileResourceKey=aGVsbG9mZmljaWFsMjU5OHwzNDcyNTk1MDc0NTA3NDgxMTg0fEZ8MTY3OTc5MTI&downloadable=true&editable=true"
+         target="_blank"
+         class="link-btn">
+
+        ▶ 시제품 시청
+
+      </a>
+
+    </article>
+
+    <!-- 특허 -->
+    <article class="info-box wide-box">
+
+      <h3>특허 출원</h3>
+
+      <img src="images/patent.png" class="row-img">
+
+      <p>3D 지도 기반 단속 기술</p>
+
+    </article>
+
+    <!-- 스타벅스 -->
+    <article class="info-box wide-box">
+
+      <h3>스타벅스 웹페이지</h3>
+
+      <img src="images/starbucks_banner.png" class="row-img">
+
+      <p>HTML / CSS 클론</p>
+
+      <a href="pages/starbucks.html"
+         target="_blank"
+         class="link-btn">
+
+        ▶ 웹페이지 이동
+
+      </a>
+
+    </article>
+
+    <!-- Skills -->
+    <article class="info-box skills-box">
+
+      <h3>Skills</h3>
+
+      <div class="skill-icon-grid">
+
+        <div class="skill-card"><img src="images/html.png"><p>HTML</p></div>
+        <div class="skill-card"><img src="images/css.png"><p>CSS</p></div>
+        <div class="skill-card"><img src="images/jsp.png"><p>JSP</p></div>
+        <div class="skill-card"><img src="images/oracle.png"><p>Oracle</p></div>
+        <div class="skill-card"><img src="images/aws.png"><p>AWS</p></div>
+
+      </div>
+
+    </article>
+
+  </section>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="page">
+
+  <h2 class="page-title">CONTACT</h2>
+
+  <section class="contact-container">
+
+    <article class="info-box contact-box">
+      <h3>Email</h3>
+      <p>chho4202@naver.com</p>
+    </article>
+
+    <article class="info-box contact-box">
+
+      <h3>Instagram</h3>
+
+      <div class="insta-content">
+        <img src="images/instagram.png" class="insta-icon">
+        <p>dlb._.wkdd</p>
+      </div>
+
+    </article>
+
+    <article class="info-box contact-box">
+      <h3>Phone</h3>
+      <p>010-5750-6186</p>
+    </article>
+
+    <article class="info-box contact-box github-box"
+      onclick="window.open('https://github.com/jangyunsung123/jangyunsung')">
+
+      <h3>GitHub</h3>
+      <p>github.com/jangyunsung123/jangyunsung</p>
+
+    </article>
+
+  </section>
+
+</section>
 
 </body>
 </html>
